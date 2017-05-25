@@ -14,8 +14,8 @@ public class Main extends Application {
     
     
     private static final int COLUMNS  =   4;
-    private static final int COUNT    =  5;
-    private static final int OFFSET_X =  15;
+    private static final int COUNT    =  10;
+    private static final int OFFSET_X =  50;
     private static final int OFFSET_Y =  25;
     private static final int WIDTH    = 500;
     private static final int HEIGHT   = 600;
