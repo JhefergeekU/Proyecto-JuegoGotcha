@@ -6,12 +6,18 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Main extends Application {
 
     private static final Image IMAGE = new Image("png/1/Attack1/1_terrorist_1_Attack1_000.png");
+    private static final Image IMAGE2 = new Image("png/CommandoMap1-1BG.jpg");
+    
+    private static final Rectangle r= new Rectangle ();
+    
     
     
     private static final int COLUMNS  =   4;
@@ -32,15 +38,34 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
     	
 		Scene scene =new Scene(pane ,800 ,600);
+		IMAGE2.getWidth();
+		IMAGE2.getHeight();
 		
+		
+		r.setHeight(IMAGE2.getWidth());
+		r.setWidth(IMAGE2.getHeight());
+		
+		//r.setfi
+		//scene.setFill(IMAGE2);
+		scene.windowProperty();
         primaryStage.setTitle("Prueba Sprites");
 
         final ImageView imageView = new ImageView(IMAGE);
+       ImageView imageView2 = new ImageView(IMAGE2);
+        
+        
         imageView.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
-
-        pane.getChildren().add(imageView);
-        pane.setLayoutX(300);
-        pane.setLayoutY(300);
+        g.getChildren().add(imageView2);
+        
+        
+        imageView2.preserveRatioProperty();
+        
+        imageView2.setFitHeight(300);
+        
+        imageView2.setRotate(90);
+        
+       // pane.getChildren().add(imageView);
+        pane.getChildren().add(imageView2);
         
         final Animation animation = new SpriteAnimation(
                 imageView,
@@ -51,7 +76,8 @@ public class Main extends Application {
         );
         animation.setCycleCount(Animation.INDEFINITE);
         animation.play();
-
+        //scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        
         primaryStage.setScene(scene);
         primaryStage.show();
     }
